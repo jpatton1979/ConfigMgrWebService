@@ -27,7 +27,7 @@ namespace ConfigMgrWebService
                 WriteEventLog("Secret key was accepted", EventLogEntryType.Information);
 
                 //' Get AD object distinguished name for computer and group
-                string computerDistinguishedName = (GetADObject(computerName, ADObjectClass.Computer, ADObjectType.distinguishedName, domainController)).Remove(0, 7);
+                string computerDistinguishedName = GetADObject(computerName, ADObjectClass.Computer, ADObjectType.distinguishedName, domainController);
                 string groupDistinguishedName = GetADObject(groupName, ADObjectClass.Group, ADObjectType.distinguishedName, domainController);
 
                 if (!string.IsNullOrEmpty(computerDistinguishedName) && !string.IsNullOrEmpty(groupDistinguishedName))
@@ -36,8 +36,7 @@ namespace ConfigMgrWebService
                     {
                         //' Add computer to group and commit
                         var groupEntry = new DirectoryEntry(groupDistinguishedName);
-                        groupEntry.Properties["member"].Add(computerDistinguishedName);
-                        groupEntry.CommitChanges();
+                        groupEntry.Invoke("Add", new object[] { computerDistinguishedName });
 
                         //' Dispose object
                         groupEntry.Dispose();

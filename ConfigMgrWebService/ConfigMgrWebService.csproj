@@ -92,22 +92,36 @@
     <Compile Include="ADComputer.cs" />
     <Compile Include="ADDomain.cs" />
     <Compile Include="ADGroup.cs" />
-    <Compile Include="ADOperations\AddADComputerToGroupByDC.cs" />
-    <Compile Include="ADOperations\AddADUserToGroupByDC.cs" />
+    <Compile Include="ADOperations\AddADComputerToGroupByDC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ADOperations\AddADUserToGroupByDC.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ADOperations\GetADComputerByDC.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ADOperations\GetADGroupMembersByDC.cs" />
-    <Compile Include="ADOperations\GetADGroupsByUserByDC.cs" />
+    <Compile Include="ADOperations\GetADGroupMembersByDC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ADOperations\GetADGroupsByUserByDC.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ADOperations\GetADObject.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ADOperations\RemoveADComputerByDC.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ADOperations\RemoveADComputerFromGroupByDC.cs" />
-    <Compile Include="ADOperations\SetADComputerManagedByByDC.cs" />
-    <Compile Include="ADOperations\SetADOrganizationalUnitForComputerByDC.cs" />
+    <Compile Include="ADOperations\RemoveADComputerFromGroupByDC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ADOperations\SetADComputerManagedByByDC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ADOperations\SetADOrganizationalUnitForComputerByDC.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ADOrganizationalUnit.cs" />
     <Compile Include="CMApplication.cs" />
     <Compile Include="CMCollection.cs" />

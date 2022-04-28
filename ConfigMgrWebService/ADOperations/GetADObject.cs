@@ -69,7 +69,14 @@ namespace ConfigMgrWebService
 
                 if (objectType.Equals(ADObjectType.distinguishedName))
                 {
-                    returnValue = string.Format(ldapFormat, directoryObject.Properties["distinguishedName"].Value);
+                    if (string.IsNullOrEmpty(domainController))
+                    {
+                        returnValue = string.Format(ldapFormat, directoryObject.Properties["distinguishedName"].Value);
+                    }
+                    else
+                    {
+                        returnValue = string.Format(ldapFormat, domainController.ToString(), directoryObject.Properties["distinguishedName"].Value);
+                    }
                 }
             }
 
