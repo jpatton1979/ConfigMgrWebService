@@ -11,7 +11,7 @@ namespace ConfigMgrWebService
 {
     public partial class ConfigMgrWebService
     {
-        [WebMethod(Description = "")]
+        [WebMethod(Description = "Add a computer in Active Directory to a specific group on the specified domain controller")]
         public bool AddADComputerToGroupByDC(string secret, string groupName, string computerName, string domainController)
         {
             var method = MethodBase.GetCurrentMethod();
