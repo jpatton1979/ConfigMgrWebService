@@ -11,7 +11,7 @@ namespace ConfigMgrWebService
 {
     public partial class ConfigMgrWebService
     {
-        [WebMethod(Description = "Set ManagedBy attribute for a specific computer with specified user name on the specified domain controller.")]
+        [WebMethod(Description = "Set ManagedBy attribute for a specific computer with specified user name on the specified domain controller")]
         public bool SetADComputerManagedByByDC(string secret, string computerName, string userName, string domainController)
         {
             var method = MethodBase.GetCurrentMethod();

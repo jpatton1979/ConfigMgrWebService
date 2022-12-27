@@ -11,7 +11,7 @@ namespace ConfigMgrWebService
 {
     public partial class ConfigMgrWebService
     {
-        [WebMethod(Description = "Get Active Directory groups for a specific user on the specified domain controller.")]
+        [WebMethod(Description = "Get Active Directory groups for a specific user on the specified domain controller")]
         public List<ADGroup> GetADGroupsByUserByDC(string secret, string userName, string domainController)
         {
             var method = MethodBase.GetCurrentMethod();

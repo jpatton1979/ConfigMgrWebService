@@ -9,7 +9,7 @@ namespace ConfigMgrWebService
 {
     public partial class ConfigMgrWebService
     {
-        [WebMethod(Description = "Get all members of an Active Directory group on the specified domain controller.")]
+        [WebMethod(Description = "Get all members of an Active Directory group on the specified domain controller")]
         public List<string> GetADGroupMembersByDC(string secret, string groupName, string domainController)
         {
             var method = MethodBase.GetCurrentMethod();

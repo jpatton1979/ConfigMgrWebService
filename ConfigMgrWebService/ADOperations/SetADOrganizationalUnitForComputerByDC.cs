@@ -10,7 +10,7 @@ namespace ConfigMgrWebService
 {
     public partial class ConfigMgrWebService
     {
-        [WebMethod(Description = "Move a computer in Active Directory to a specific organizational unit via the specified domain controller.")]
+        [WebMethod(Description = "Move a computer in Active Directory to a specific organizational unit via the specified domain controller")]
         public bool SetADOrganizationalUnitForComputerByDC(string secret, string organizationalUnitLocation, string computerName, string domainController)
         {
             var method = MethodBase.GetCurrentMethod();
