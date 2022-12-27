@@ -9,7 +9,7 @@ namespace ConfigMgrWebService
 {
     public partial class ConfigMgrWebService
     {
-        [WebMethod(Description = "Remove a computer in Active Directory from a specific group on the specified domain controller.")]
+        [WebMethod(Description = "Remove a computer in Active Directory from a specific group on the specified domain controller")]
         public bool RemoveADComputerFromGroupByDC(string secret, string groupName, string computerName, string domainController)
         {
             var method = MethodBase.GetCurrentMethod();
@@ -25,7 +25,8 @@ namespace ConfigMgrWebService
                 WriteEventLog("Secret key was accepted", EventLogEntryType.Information);
 
                 //' Get AD object distinguished name for computer and group
-                string computerDistinguishedName = GetADObject(computerName, ADObjectClass.Computer, ADObjectType.distinguishedName, domainController);
+                string computerDistinguishedName = (GetADObject(computerName, ADObjectClass.Computer, ADObjectType.distinguishedName)).Remove(0, 7);
+                string computerDistinguishedName2 = GetADObject(computerName, ADObjectClass.Computer, ADObjectType.distinguishedName, domainController);
                 string groupDistinguishedName = GetADObject(groupName, ADObjectClass.Group, ADObjectType.distinguishedName, domainController);
 
                 if (!string.IsNullOrEmpty(computerDistinguishedName) && !string.IsNullOrEmpty(groupDistinguishedName))
@@ -39,7 +40,7 @@ namespace ConfigMgrWebService
                         if (memberOf == true)
                         {
                             //' Remove computer from group and commit
-                            groupEntry.Invoke("Remove", new object[] { computerDistinguishedName });
+                            groupEntry.Invoke("Remove", new object[] { computerDistinguishedName2 });
 
                             returnValue = true;
                         }
